@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Group 8 School Website</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -16,6 +17,37 @@
       line-height: 1.6;
       background: linear-gradient(135deg, #a8dadc, #f1faee, #ffe8a3);
       background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    /* Bubble Background */
+    .bubbles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: -100px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      animation: rise 20s infinite ease-in;
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.5;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.5);
+        opacity: 0;
+      }
     }
 
     header {
@@ -47,7 +79,7 @@
     .container {
       max-width: 1000px;
       margin: 40px auto;
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.9);
       padding: 30px;
       border-radius: 15px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.1);
@@ -79,6 +111,12 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
 
+    .card i {
+      font-size: 40px;
+      color: #003366;
+      margin-bottom: 15px;
+    }
+
     .card h3 {
       margin-bottom: 10px;
       color: #003366;
@@ -104,6 +142,20 @@
       color: #003366;
     }
 
+    .contact-info {
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    .contact-info p {
+      margin: 10px 0;
+    }
+
+    .contact-info i {
+      margin-right: 8px;
+      color: #003366;
+    }
+
     footer {
       background: rgba(0, 51, 102, 0.95);
       color: white;
@@ -115,29 +167,40 @@
   </style>
 </head>
 <body>
+  <!-- Bubble Animation -->
+  <div class="bubbles">
+    <div class="bubble" style="width:40px; height:40px; left:10%; animation-duration: 18s;"></div>
+    <div class="bubble" style="width:25px; height:25px; left:30%; animation-duration: 12s;"></div>
+    <div class="bubble" style="width:50px; height:50px; left:50%; animation-duration: 20s;"></div>
+    <div class="bubble" style="width:30px; height:30px; left:70%; animation-duration: 15s;"></div>
+    <div class="bubble" style="width:60px; height:60px; left:90%; animation-duration: 25s;"></div>
+  </div>
+
   <header>
     <h1>Group 8 School Website</h1>
     <nav>
-      <a href="#home">Home</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+      <a href="#home"><i class="fas fa-house"></i> Home</a>
+      <a href="#projects"><i class="fas fa-tasks"></i> Projects</a>
+      <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
     </nav>
   </header>
 
   <div class="container" id="home">
-    <h2>Welcome!</h2>
+    <h2><i class="fas fa-house"></i> Welcome!</h2>
     <p>This is the official website of <strong>Group 8</strong>. Here we share our school projects, files, and activities.</p>
   </div>
 
   <div class="container" id="projects">
-    <h2>Our Projects</h2>
+    <h2><i class="fas fa-tasks"></i> Our Projects</h2>
     <div class="projects">
       <div class="card">
+        <i class="fas fa-folder"></i>
         <h3>Project 1</h3>
         <p>Files (PDF, PPTX, Docs)</p>
         <a href="project1.pdf">View Files</a>
       </div>
       <div class="card">
+        <i class="fas fa-video"></i>
         <h3>Project 2</h3>
         <p>Videos (Presentations, Activities)</p>
         <a href="project2.mp4">Watch Videos</a>
@@ -146,9 +209,11 @@
   </div>
 
   <div class="container" id="contact">
-    <h2>Contact</h2>
-    <p>Email: ###</p>
-    <p>Phone: ###</p>
+    <h2><i class="fas fa-envelope"></i> Contact</h2>
+    <div class="contact-info">
+      <p><i class="fas fa-envelope"></i>Email: ###</p>
+      <p><i class="fas fa-phone"></i>Phone: ###</p>
+    </div>
   </div>
 
   <footer>
