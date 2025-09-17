@@ -2,191 +2,181 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group 8 School Website</title>
   <style>
-    /* Reset & background */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
-      font-family: Arial, sans-serif;
-      color: #fff;
-      background: #0a0a0a;
-      overflow: hidden;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      color: #333;
+      line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
     }
 
-    /* Canvas for floating letters */
-    #bgCanvas {
+    /* --- Visible Bubble Background --- */
+    body::before {
+      content: "";
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
+      background: radial-gradient(circle at 20% 20%, rgba(255, 99, 132, 0.7), transparent 50%),
+                  radial-gradient(circle at 80% 30%, rgba(54, 162, 235, 0.7), transparent 50%),
+                  radial-gradient(circle at 40% 80%, rgba(75, 192, 192, 0.7), transparent 50%),
+                  radial-gradient(circle at 70% 70%, rgba(255, 206, 86, 0.7), transparent 50%),
+                  radial-gradient(circle at 50% 50%, rgba(153, 102, 255, 0.6), transparent 50%);
+      background-size: 150% 150%;
+      animation: moveBubbles 18s infinite alternate ease-in-out;
       z-index: -1;
-      background: radial-gradient(circle at center, #0f2027, #203a43, #2c5364);
     }
 
-    /* Navbar */
+    @keyframes moveBubbles {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 100%; }
+      100% { background-position: 0% 0%; }
+    }
+
     header {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 15px;
+      background: rgba(0, 51, 102, 0.95);
+      color: white;
+      padding: 20px;
       text-align: center;
-    }
-    header h1 {
-      font-size: 28px;
-      letter-spacing: 2px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     }
 
-    nav {
-      margin-top: 10px;
+    header h1 {
+      margin-bottom: 10px;
+      font-size: 2rem;
+      letter-spacing: 1px;
     }
+
     nav a {
       color: white;
       text-decoration: none;
       margin: 0 15px;
       font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      color: #ffd700;
+      transition: 0.3s;
     }
 
-    /* Sections */
-    section {
-      padding: 50px;
-      text-align: center;
-      background: rgba(0, 0, 0, 0.4);
-      margin: 30px auto;
-      width: 80%;
-      border-radius: 15px;
+    nav a:hover {
+      color: #f1c40f;
     }
-    section h2 {
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    h2 {
       margin-bottom: 20px;
+      color: #003366;
+      text-align: center;
     }
 
     .projects {
-      display: flex;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
-      flex-wrap: wrap;
     }
+
     .card {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 20px;
-      border-radius: 15px;
-      width: 200px;
-      transition: transform 0.3s, background 0.3s;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
+
     .card:hover {
-      transform: scale(1.05);
-      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #003366;
+    }
+
+    .card p {
+      margin-bottom: 15px;
+    }
+
+    .card a {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #003366;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .card a:hover {
+      background: #f1c40f;
+      color: #003366;
     }
 
     footer {
+      background: rgba(0, 51, 102, 0.95);
+      color: white;
       text-align: center;
-      padding: 20px;
-      background: rgba(0,0,0,0.6);
-      margin-top: 20px;
+      padding: 15px;
+      margin-top: 40px;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-  <canvas id="bgCanvas"></canvas>
-
   <header>
     <h1>Group 8 School Website</h1>
     <nav>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Projects</a>
-      <a href="#">Contact</a>
+      <a href="#home">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <section id="about">
-    <h2>About Us</h2>
-    <p>We are Group 8, building creative school projects with teamwork and dedication.</p>
-  </section>
+  <div class="container" id="home">
+    <h2>Welcome!</h2>
+    <p>This is the official website of <strong>Group 8</strong>. Here we share our school projects, files, and activities.</p>
+  </div>
 
-  <section id="projects">
+  <div class="container" id="projects">
     <h2>Our Projects</h2>
     <div class="projects">
       <div class="card">
         <h3>Project 1</h3>
-        <p>Files</p>
+        <p>Files (PDF, PPTX, Docs)</p>
+        <a href="project1.pdf">View Files</a>
       </div>
       <div class="card">
         <h3>Project 2</h3>
-        <p>Videos</p>
+        <p>Videos (Presentations, Activities)</p>
+        <a href="project2.mp4">Watch Videos</a>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>###</p>
-    <p>###</p>
-    <p>###</p>
-  </section>
+  <div class="container" id="contact">
+    <h2>Contact</h2>
+    <p>Email: ###</p>
+    <p>Phone: ###</p>
+  </div>
 
   <footer>
-    <p>&copy; 2025 Group 8. All Rights Reserved.</p>
+    <p>© 2025 Group 8 School Website | All Rights Reserved</p>
   </footer>
-
-  <script>
-    const canvas = document.getElementById("bgCanvas");
-    const ctx = canvas.getContext("2d");
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-    const floatingLetters = [];
-
-    // Create random glowing letters
-    for (let i = 0; i < 40; i++) {
-      floatingLetters.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        dx: (Math.random() - 0.5) * 3,
-        dy: (Math.random() - 0.5) * 3,
-        letter: letters[Math.floor(Math.random() * letters.length)],
-        size: 30 + Math.random() * 40,
-        color: hsl(${Math.random() * 360}, 100%, 65%)
-      });
-    }
-
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      floatingLetters.forEach(l => {
-        ctx.font = ${l.size}px Arial Black;
-        ctx.fillStyle = l.color;
-
-        // glowing effect
-        ctx.shadowBlur = 20;
-        ctx.shadowColor = l.color;
-
-        ctx.fillText(l.letter, l.x, l.y);
-
-        l.x += l.dx;
-        l.y += l.dy;
-
-        if (l.x + l.size > canvas.width || l.x < 0) l.dx *= -1;
-        if (l.y > canvas.height || l.y - l.size < 0) l.dy *= -1;
-      });
-
-      requestAnimationFrame(animate);
-    }
-    animate();
-
-    window.addEventListener("resize", () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
-  </script>
 </body>
 </html>
