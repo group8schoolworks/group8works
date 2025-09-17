@@ -18,7 +18,7 @@
       overflow-x: hidden;
     }
 
-    /* --- Visible Bubble Background --- */
+    /* --- Bubbles Background --- */
     body::before {
       content: "";
       position: fixed;
@@ -33,13 +33,23 @@
                   radial-gradient(circle at 50% 50%, rgba(153, 102, 255, 0.6), transparent 50%);
       background-size: 150% 150%;
       animation: moveBubbles 18s infinite alternate ease-in-out;
-      z-index: -1;
+      z-index: -2;
     }
 
     @keyframes moveBubbles {
       0% { background-position: 0% 0%; }
       50% { background-position: 100% 100%; }
       100% { background-position: 0% 0%; }
+    }
+
+    /* --- Canvas for bouncing letters --- */
+    canvas#lettersCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
     }
 
     header {
@@ -139,6 +149,9 @@
   </style>
 </head>
 <body>
+  <!-- Canvas for bouncing letters -->
+  <canvas id="lettersCanvas"></canvas>
+
   <header>
     <h1>Group 8 School Website</h1>
     <nav>
@@ -178,5 +191,53 @@
   <footer>
     <p>© 2025 Group 8 School Website | All Rights Reserved</p>
   </footer>
+
+  <script>
+    const canvas = document.getElementById("lettersCanvas");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const balls = [];
+
+    for (let i = 0; i < 20; i++) {
+      balls.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        dx: (Math.random() - 0.5) * 2,
+        dy: (Math.random() - 0.5) * 2,
+        letter: letters[Math.floor(Math.random() * letters.length)],
+        size: 28,
+        color: "rgba(0, 51, 102, 0.7)"
+      });
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      balls.forEach(b => {
+        ctx.font = ${b.size}px Arial;
+        ctx.fillStyle = b.color;
+        ctx.fillText(b.letter, b.x, b.y);
+
+        b.x += b.dx;
+        b.y += b.dy;
+
+        if (b.x + b.size > canvas.width || b.x < 0) b.dx *= -1;
+        if (b.y > canvas.height || b.y - b.size < 0) b.dy *= -1;
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
 </body>
 </html>
