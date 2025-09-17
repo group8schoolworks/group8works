@@ -16,67 +16,6 @@
       line-height: 1.6;
       background: linear-gradient(135deg, #a8dadc, #f1faee, #ffe8a3);
       background-attachment: fixed;
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    /* Bubble background */
-    .bubbles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      overflow: hidden;
-    }
-
-    .bubble {
-      position: absolute;
-      bottom: -100px;
-      background: rgba(255, 255, 255, 0.3);
-      border-radius: 50%;
-      animation: rise 20s infinite ease-in;
-    }
-
-    .bubble:nth-child(1) {
-      width: 80px; height: 80px;
-      left: 10%;
-      animation-duration: 25s;
-    }
-    .bubble:nth-child(2) {
-      width: 40px; height: 40px;
-      left: 25%;
-      animation-duration: 18s;
-    }
-    .bubble:nth-child(3) {
-      width: 60px; height: 60px;
-      left: 40%;
-      animation-duration: 22s;
-    }
-    .bubble:nth-child(4) {
-      width: 100px; height: 100px;
-      left: 60%;
-      animation-duration: 28s;
-    }
-    .bubble:nth-child(5) {
-      width: 50px; height: 50px;
-      left: 80%;
-      animation-duration: 20s;
-    }
-
-    @keyframes rise {
-      0% {
-        transform: translateY(0) scale(1);
-        opacity: 0.6;
-      }
-      50% {
-        opacity: 0.3;
-      }
-      100% {
-        transform: translateY(-120vh) scale(1.2);
-        opacity: 0;
-      }
     }
 
     header {
@@ -176,15 +115,6 @@
   </style>
 </head>
 <body>
-  <!-- bubbles container -->
-  <div class="bubbles">
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-  </div>
-
   <header>
     <h1>Group 8 School Website</h1>
     <nav>
