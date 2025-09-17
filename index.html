@@ -14,32 +14,18 @@
       font-family: "Segoe UI", Tahoma, sans-serif;
       color: #333;
       line-height: 1.6;
-      position: relative;
       overflow-x: hidden;
+      background: linear-gradient(135deg, #1e3c72, #2a5298); /* darker gradient */
     }
 
-    /* --- Visible Bubble Background --- */
-    body::before {
-      content: "";
+    /* Canvases */
+    #backgroundCanvas, #letters {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle at 20% 20%, rgba(255, 99, 132, 0.7), transparent 50%),
-                  radial-gradient(circle at 80% 30%, rgba(54, 162, 235, 0.7), transparent 50%),
-                  radial-gradient(circle at 40% 80%, rgba(75, 192, 192, 0.7), transparent 50%),
-                  radial-gradient(circle at 70% 70%, rgba(255, 206, 86, 0.7), transparent 50%),
-                  radial-gradient(circle at 50% 50%, rgba(153, 102, 255, 0.6), transparent 50%);
-      background-size: 150% 150%;
-      animation: moveBubbles 18s infinite alternate ease-in-out;
-      z-index: -1;
-    }
-
-    @keyframes moveBubbles {
-      0% { background-position: 0% 0%; }
-      50% { background-position: 100% 100%; }
-      100% { background-position: 0% 0%; }
+      z-index: -1; /* nasa likod ng content */
     }
 
     header {
@@ -71,10 +57,10 @@
     .container {
       max-width: 1000px;
       margin: 40px auto;
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.9);
       padding: 30px;
       border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
     }
 
     h2 {
@@ -139,6 +125,10 @@
   </style>
 </head>
 <body>
+  <!-- Background effects -->
+  <canvas id="backgroundCanvas"></canvas>
+  <canvas id="letters"></canvas>
+
   <header>
     <h1>Group 8 School Website</h1>
     <nav>
@@ -157,12 +147,12 @@
     <h2>Our Projects</h2>
     <div class="projects">
       <div class="card">
-        <h3>Project 1</h3>
+        <h3>📂 Project 1</h3>
         <p>Files (PDF, PPTX, Docs)</p>
         <a href="project1.pdf">View Files</a>
       </div>
       <div class="card">
-        <h3>Project 2</h3>
+        <h3>🎥 Project 2</h3>
         <p>Videos (Presentations, Activities)</p>
         <a href="project2.mp4">Watch Videos</a>
       </div>
@@ -178,5 +168,84 @@
   <footer>
     <p>© 2025 Group 8 School Website | All Rights Reserved</p>
   </footer>
+
+  <!-- Background bubbles -->
+  <script>
+    const canvas = document.getElementById("backgroundCanvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let bubbles = [];
+    for (let i = 0; i < 50; i++) {
+      bubbles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 15 + 8,
+        dx: (Math.random() - 0.5) * 1.2,
+        dy: (Math.random() - 0.5) * 1.2,
+        color: "rgba(255,255,255,0.4)"
+      });
+    }
+
+    function animateBubbles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      bubbles.forEach(b => {
+        ctx.beginPath();
+        ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+        ctx.fillStyle = b.color;
+        ctx.fill();
+        b.x += b.dx;
+        b.y += b.dy;
+        if (b.x < 0 || b.x > canvas.width) b.dx *= -1;
+        if (b.y < 0 || b.y > canvas.height) b.dy *= -1;
+      });
+      requestAnimationFrame(animateBubbles);
+    }
+    animateBubbles();
+  </script>
+
+  <!-- Colorful bouncing letters -->
+  <script>
+    const canvasLetters = document.getElementById("letters");
+    const ctxL = canvasLetters.getContext("2d");
+    canvasLetters.width = window.innerWidth;
+    canvasLetters.height = window.innerHeight;
+
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const colors = ["#FF5733", "#33FF57", "#3357FF", "#FF33A8", "#FFD433", "#33FFF3", "#FF7F50", "#8A2BE2"];
+
+    let balls = [];
+    for (let i = 0; i < 40; i++) {
+      balls.push({
+        x: Math.random() * canvasLetters.width,
+        y: Math.random() * canvasLetters.height,
+        dx: (Math.random() - 0.5) * 3,
+        dy: (Math.random() - 0.5) * 3,
+        letter: letters[Math.floor(Math.random() * letters.length)],
+        color: colors[Math.floor(Math.random() * colors.length)],
+        size: 28 + Math.random() * 12
+      });
+    }
+
+    function animateLetters() {
+      ctxL.clearRect(0, 0, canvasLetters.width, canvasLetters.height);
+      balls.forEach(b => {
+        ctxL.font = ${b.size}px Arial Black;
+        ctxL.fillStyle = b.color;
+        ctxL.shadowColor = "black";
+        ctxL.shadowBlur = 8;
+        ctxL.fillText(b.letter, b.x, b.y);
+
+        b.x += b.dx;
+        b.y += b.dy;
+
+        if (b.x < 0 || b.x > canvasLetters.width - b.size) b.dx *= -1;
+        if (b.y < b.size || b.y > canvasLetters.height) b.dy *= -1;
+      });
+      requestAnimationFrame(animateLetters);
+    }
+    animateLetters();
+  </script>
 </body>
 </html>
