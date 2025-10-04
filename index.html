@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Group 8 School Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plastic Waste Advocacy</title>
   <style>
     * {
       margin: 0;
@@ -11,39 +12,40 @@
     }
 
     body {
-      font-family: "Segoe UI", Tahoma, sans-serif;
-      color: #333;
-      line-height: 1.6;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      color: #fff;
       overflow-x: hidden;
-      background: linear-gradient(135deg, #1e3c72, #2a5298); /* darker gradient */
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
     }
 
-    /* Canvases */
-    #backgroundCanvas, #letters {
+    /* Background animation (bubbles for plastic awareness) */
+    #bgCanvas {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -1; /* nasa likod ng content */
+      z-index: -1;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
     }
 
     header {
-      background: rgba(0, 51, 102, 0.95);
-      color: white;
+      background: rgba(0, 0, 0, 0.6);
       padding: 20px;
       text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      position: sticky;
+      top: 0;
     }
 
     header h1 {
+      font-size: 28px;
       margin-bottom: 10px;
-      font-size: 2rem;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
+      color: #f1faee;
     }
 
     nav a {
-      color: white;
+      color: #fff;
       text-decoration: none;
       margin: 0 15px;
       font-weight: bold;
@@ -51,201 +53,149 @@
     }
 
     nav a:hover {
-      color: #f1c40f;
+      color: #ffd700;
     }
 
     .container {
       max-width: 1000px;
       margin: 40px auto;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.1);
       padding: 30px;
       border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      backdrop-filter: blur(6px);
     }
 
     h2 {
       margin-bottom: 20px;
-      color: #003366;
+      color: #f1faee;
       text-align: center;
     }
 
-    .projects {
+    .sections {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
     }
 
     .card {
-      background: white;
+      background: rgba(255, 255, 255, 0.15);
       padding: 25px;
       border-radius: 12px;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.3s, background 0.3s;
     }
 
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      background: rgba(255, 255, 255, 0.3);
     }
 
     .card h3 {
       margin-bottom: 10px;
-      color: #003366;
+      color: #ffd700;
     }
 
     .card p {
-      margin-bottom: 15px;
-    }
-
-    .card a {
-      display: inline-block;
-      padding: 10px 20px;
-      background: #003366;
-      color: white;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .card a:hover {
-      background: #f1c40f;
-      color: #003366;
+      font-size: 0.95rem;
     }
 
     footer {
-      background: rgba(0, 51, 102, 0.95);
-      color: white;
+      background: rgba(0, 0, 0, 0.6);
       text-align: center;
       padding: 15px;
-      margin-top: 40px;
+      margin-top: 30px;
       font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-  <!-- Background effects -->
-  <canvas id="backgroundCanvas"></canvas>
-  <canvas id="letters"></canvas>
+  <canvas id="bgCanvas"></canvas>
 
   <header>
-    <h1>Group 8 School Website</h1>
+    <h1>Plastic Waste Advocacy</h1>
     <nav>
-      <a href="#home">Home</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+      <a href="#advocacy">Advocacy</a>
+      <a href="#infographics">Infographics</a>
+      <a href="#blog">Blog</a>
     </nav>
   </header>
 
-  <div class="container" id="home">
-    <h2>Welcome!</h2>
-    <p>This is the official website of <strong>Group 8</strong>. Here we share our school projects, files, and activities.</p>
-  </div>
-
-  <div class="container" id="projects">
-    <h2>Our Projects</h2>
-    <div class="projects">
+  <div class="container" id="advocacy">
+    <h2>Our Advocacy</h2>
+    <div class="sections">
       <div class="card">
-        <h3>📂 Project 1</h3>
-        <p>Files (PDF, PPTX, Docs)</p>
-        <a href="project1.pdf">View Files</a>
+        <h3>Reduce Plastic</h3>
+        <p>Learn practical steps to reduce single-use plastic in daily life.</p>
       </div>
       <div class="card">
-        <h3>🎥 Project 2</h3>
-        <p>Videos (Presentations, Activities)</p>
-        <a href="project2.mp4">Watch Videos</a>
+        <h3>Recycle Properly</h3>
+        <p>Understand proper waste segregation and recycling methods.</p>
+      </div>
+      <div class="card">
+        <h3>Community Action</h3>
+        <p>Join clean-up drives and awareness campaigns against plastic pollution.</p>
       </div>
     </div>
   </div>
 
-  <div class="container" id="contact">
-    <h2>Contact</h2>
-    <p>Email: ###</p>
-    <p>Phone: ###</p>
+  <div class="container" id="infographics">
+    <h2>Infographics</h2>
+    <p style="text-align:center;">Coming soon: educational visuals about plastic waste management.</p>
+  </div>
+
+  <div class="container" id="blog">
+    <h2>Blog</h2>
+    <p style="text-align:center;">Stay tuned for articles and stories about the fight against plastic waste.</p>
   </div>
 
   <footer>
-    <p>© 2025 Group 8 School Website | All Rights Reserved</p>
+    <p>&copy; 2025 Plastic Waste Advocacy | Group 8</p>
   </footer>
 
-  <!-- Background bubbles -->
   <script>
-    const canvas = document.getElementById("backgroundCanvas");
+    const canvas = document.getElementById("bgCanvas");
     const ctx = canvas.getContext("2d");
+
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    let bubbles = [];
+    const bubbles = [];
+
     for (let i = 0; i < 50; i++) {
       bubbles.push({
         x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 15 + 8,
-        dx: (Math.random() - 0.5) * 1.2,
-        dy: (Math.random() - 0.5) * 1.2,
-        color: "rgba(255,255,255,0.4)"
+        y: canvas.height + Math.random() * 100,
+        r: Math.random() * 10 + 5,
+        speed: Math.random() * 2 + 1,
+        color: rgba(173, 216, 230, ${Math.random()})
       });
     }
 
-    function animateBubbles() {
+    function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
       bubbles.forEach(b => {
         ctx.beginPath();
         ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
         ctx.fillStyle = b.color;
         ctx.fill();
-        b.x += b.dx;
-        b.y += b.dy;
-        if (b.x < 0 || b.x > canvas.width) b.dx *= -1;
-        if (b.y < 0 || b.y > canvas.height) b.dy *= -1;
+
+        b.y -= b.speed;
+        if (b.y + b.r < 0) {
+          b.y = canvas.height + b.r;
+          b.x = Math.random() * canvas.width;
+        }
       });
-      requestAnimationFrame(animateBubbles);
+
+      requestAnimationFrame(animate);
     }
-    animateBubbles();
-  </script>
+    animate();
 
-  <!-- Colorful bouncing letters -->
-  <script>
-    const canvasLetters = document.getElementById("letters");
-    const ctxL = canvasLetters.getContext("2d");
-    canvasLetters.width = window.innerWidth;
-    canvasLetters.height = window.innerHeight;
-
-    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const colors = ["#FF5733", "#33FF57", "#3357FF", "#FF33A8", "#FFD433", "#33FFF3", "#FF7F50", "#8A2BE2"];
-
-    let balls = [];
-    for (let i = 0; i < 40; i++) {
-      balls.push({
-        x: Math.random() * canvasLetters.width,
-        y: Math.random() * canvasLetters.height,
-        dx: (Math.random() - 0.5) * 3,
-        dy: (Math.random() - 0.5) * 3,
-        letter: letters[Math.floor(Math.random() * letters.length)],
-        color: colors[Math.floor(Math.random() * colors.length)],
-        size: 28 + Math.random() * 12
-      });
-    }
-
-    function animateLetters() {
-      ctxL.clearRect(0, 0, canvasLetters.width, canvasLetters.height);
-      balls.forEach(b => {
-        ctxL.font = ${b.size}px Arial Black;
-        ctxL.fillStyle = b.color;
-        ctxL.shadowColor = "black";
-        ctxL.shadowBlur = 8;
-        ctxL.fillText(b.letter, b.x, b.y);
-
-        b.x += b.dx;
-        b.y += b.dy;
-
-        if (b.x < 0 || b.x > canvasLetters.width - b.size) b.dx *= -1;
-        if (b.y < b.size || b.y > canvasLetters.height) b.dy *= -1;
-      });
-      requestAnimationFrame(animateLetters);
-    }
-    animateLetters();
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
   </script>
 </body>
 </html>
