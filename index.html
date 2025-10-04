@@ -1,214 +1,160 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Plastic Waste Advocacy</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-
     body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      color: #1b3d1f;
       overflow: hidden;
-      background: #e8f5e9;
-      color: #2e7d32;
+      background: #eaf5e3;
     }
 
-    /* Background video (looping park scene) */
-    video#bg-video {
+    /* Background video */
+    video#bg {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -3;
-      filter: brightness(0.8);
-    }
-
-    /* Soft sunlight overlay */
-    .sunlight {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 60% 10%, rgba(255,255,200,0.3), transparent 70%);
+      min-width: 100%;
+      min-height: 100%;
       z-index: -2;
-      animation: lightMove 8s ease-in-out infinite alternate;
+      object-fit: cover;
     }
 
-    @keyframes lightMove {
-      from { transform: translateY(0px); opacity: 0.7; }
-      to { transform: translateY(20px); opacity: 0.5; }
+    /* Fallback overlay tint */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.3);
+      z-index: -1;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 0 10px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(6px);
+      font-size: 2em;
+      font-weight: 600;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      padding: 15px;
+    }
+
+    nav button {
+      background: white;
+      border: 2px solid #66bb6a;
+      border-radius: 30px;
+      color: #2e7d32;
+      padding: 10px 25px;
+      font-size: 1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    nav button:hover {
+      background: #a5d6a7;
+      transform: scale(1.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    nav button:active {
+      transform: scale(0.95);
+    }
+
+    .content {
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    .projects {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 40px 60px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #2e7d32;
+      font-size: 1.3em;
+      border: 2px solid #a5d6a7;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      background: #dcedc8;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
 
     /* Falling leaves */
     .leaf {
       position: fixed;
-      width: 25px;
-      height: 25px;
-      background-image: url('https://cdn-icons-png.flaticon.com/512/415/415682.png');
-      background-size: cover;
-      opacity: 0.9;
-      animation: fall 10s linear infinite;
-      z-index: -1;
+      top: -10%;
+      font-size: 1.5em;
+      color: #4caf50;
+      animation: fall linear infinite;
     }
 
     @keyframes fall {
-      0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
       100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
     }
-
-    /* Header */
-    header {
-      background: rgba(255, 255, 255, 0.9);
-      text-align: center;
-      padding: 25px 0;
-      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      border-radius: 0 0 25px 25px;
-    }
-
-    header h1 {
-      font-size: 32px;
-      color: #1b5e20;
-      letter-spacing: 1px;
-      text-shadow: 0 2px 5px rgba(255,255,255,0.8);
-    }
-
-    nav {
-      margin-top: 15px;
-    }
-
-    nav a {
-      color: #388e3c;
-      background: white;
-      border: 2px solid #a5d6a7;
-      border-radius: 15px;
-      text-decoration: none;
-      padding: 12px 22px;
-      margin: 0 10px;
-      display: inline-block;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    }
-
-    nav a:hover {
-      background: #c8e6c9;
-      transform: scale(1.1);
-      box-shadow: 0 0 15px rgba(46,125,50,0.4);
-    }
-
-    /* Click animation */
-    nav a:active {
-      transform: scale(0.9) rotate(-2deg);
-      background: #81c784;
-      color: white;
-    }
-
-    /* Main content */
-    section {
-      margin-top: 100px;
-      text-align: center;
-    }
-
-    .container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 25px;
-      margin-top: 40px;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.9);
-      padding: 25px;
-      border-radius: 20px;
-      width: 250px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
-      backdrop-filter: blur(8px);
-    }
-
-    .card:hover {
-      transform: translateY(-10px) scale(1.05);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-    }
-
-    .card h3 {
-      color: #2e7d32;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: #33691e;
-      font-size: 14px;
-    }
-
-    /* Leaf animation duplication */
-    @keyframes sway {
-      0%, 100% { transform: rotate(0deg); }
-      50% { transform: rotate(10deg); }
-    }
-
   </style>
 </head>
 <body>
-
-  <!-- Background Video -->
-  <video id="bg-video" autoplay loop muted>
-    <source src="https://cdn.coverr.co/videos/coverr-people-walking-in-a-park-7197/1080p.mp4" type="video/mp4">
+  <!-- Video Background -->
+  <video autoplay muted loop id="bg">
+    <source src="https://cdn.pixabay.com/video/2021/04/15/72189-535480291_large.mp4" type="video/mp4">
   </video>
-  <div class="sunlight"></div>
+  <div class="overlay"></div>
 
-  <!-- Falling leaves -->
+  <header>Plastic Waste Advocacy</header>
+  <nav>
+    <button>Advocacy</button>
+    <button>Infographics</button>
+    <button>Blog</button>
+  </nav>
+
+  <div class="content">
+    <h2>Our Projects</h2>
+    <div class="projects">
+      <div class="card">Advocacy</div>
+      <div class="card">Infographics</div>
+      <div class="card">Blog</div>
+    </div>
+  </div>
+
+  <!-- Falling leaves generator -->
   <script>
-    for (let i = 0; i < 10; i++) {
-      let leaf = document.createElement('div');
-      leaf.classList.add('leaf');
+    const leaves = ['🍃','🍂','🌿','🍁'];
+    setInterval(() => {
+      const leaf = document.createElement('div');
+      leaf.className = 'leaf';
+      leaf.innerText = leaves[Math.floor(Math.random() * leaves.length)];
       leaf.style.left = Math.random() * 100 + 'vw';
       leaf.style.animationDuration = (5 + Math.random() * 5) + 's';
-      leaf.style.animationDelay = Math.random() * 5 + 's';
       document.body.appendChild(leaf);
-    }
+      setTimeout(() => leaf.remove(), 10000);
+    }, 400);
   </script>
-
-  <!-- HEADER -->
-  <header>
-    <h1>Plastic Waste Advocacy</h1>
-    <nav>
-      <a href="#">Advocacy</a>
-      <a href="#">Infographics</a>
-      <a href="#">Blog</a>
-    </nav>
-  </header>
-
-  <!-- CONTENT -->
-  <section>
-    <h2 style="font-size:28px; color:#1b5e20;">Our Projects</h2>
-    <div class="container">
-      <div class="card">
-        <h3>Advocacy</h3>
-        <p>Spreading awareness about plastic waste and encouraging eco-friendly lifestyles.</p>
-      </div>
-      <div class="card">
-        <h3>Infographics</h3>
-        <p>Visual facts about plastic waste impact and green planet solutions.</p>
-      </div>
-      <div class="card">
-        <h3>Blog</h3>
-        <p>Read real stories and tips from people reducing plastic waste around the world.</p>
-      </div>
-    </div>
-  </section>
-
 </body>
 </html>
