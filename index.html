@@ -1,160 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Plastic Waste Advocacy</title>
   <style>
     body {
       margin: 0;
-      font-family: "Poppins", sans-serif;
-      color: #1b3d1f;
+      font-family: 'Poppins', sans-serif;
+      color: #1d4d2c;
+      background: linear-gradient(to bottom right, #d8f3dc, #b7e4c7);
       overflow: hidden;
-      background: #eaf5e3;
+      height: 100vh;
     }
 
-    /* Background video */
-    video#bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      min-width: 100%;
-      min-height: 100%;
-      z-index: -2;
-      object-fit: cover;
-    }
-
-    /* Fallback overlay tint */
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.3);
-      z-index: -1;
-    }
-
-    header {
-      text-align: center;
-      padding: 40px 0 10px;
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(6px);
-      font-size: 2em;
-      font-weight: 600;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(8px);
-      padding: 15px;
-    }
-
-    nav button {
-      background: white;
-      border: 2px solid #66bb6a;
-      border-radius: 30px;
-      color: #2e7d32;
-      padding: 10px 25px;
-      font-size: 1em;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    nav button:hover {
-      background: #a5d6a7;
-      transform: scale(1.1);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-
-    nav button:active {
-      transform: scale(0.95);
-    }
-
-    .content {
-      text-align: center;
-      margin-top: 80px;
-    }
-
-    .projects {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.85);
-      padding: 40px 60px;
-      border-radius: 20px;
-      font-weight: 600;
-      color: #2e7d32;
-      font-size: 1.3em;
-      border: 2px solid #a5d6a7;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-      background: #dcedc8;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    }
-
-    /* Falling leaves */
+    /* Animated leaves background */
     .leaf {
-      position: fixed;
-      top: -10%;
-      font-size: 1.5em;
-      color: #4caf50;
+      position: absolute;
+      top: -50px;
+      width: 30px;
+      height: 30px;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Leaf_icon.svg/1024px-Leaf_icon.svg.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.8;
       animation: fall linear infinite;
     }
 
     @keyframes fall {
-      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+      0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0.3;
+      }
+    }
+
+    header {
+      text-align: center;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2em;
+      font-weight: 700;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      text-decoration: none;
+      background: white;
+      color: #1b4332;
+      font-weight: 600;
+      margin: 0 10px;
+      padding: 10px 25px;
+      border-radius: 25px;
+      transition: 0.3s ease;
+      display: inline-block;
+    }
+
+    nav a:hover {
+      background: #95d5b2;
+      transform: scale(1.1);
+    }
+
+    main {
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    .box-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .box {
+      background: white;
+      width: 250px;
+      padding: 40px 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    .box h3 {
+      color: #2d6a4f;
+      font-size: 1.3em;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      color: #1b4332;
+      font-size: 0.9em;
     }
   </style>
 </head>
 <body>
-  <!-- Video Background -->
-  <video autoplay muted loop id="bg">
-    <source src="https://cdn.pixabay.com/video/2021/04/15/72189-535480291_large.mp4" type="video/mp4">
-  </video>
-  <div class="overlay"></div>
+  <header>
+    <h1>Plastic Waste Advocacy</h1>
+    <nav>
+      <a href="advocacy.html">Advocacy</a>
+      <a href="infographics.html">Infographics</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+  </header>
 
-  <header>Plastic Waste Advocacy</header>
-  <nav>
-    <button>Advocacy</button>
-    <button>Infographics</button>
-    <button>Blog</button>
-  </nav>
-
-  <div class="content">
+  <main>
     <h2>Our Projects</h2>
-    <div class="projects">
-      <div class="card">Advocacy</div>
-      <div class="card">Infographics</div>
-      <div class="card">Blog</div>
+    <div class="box-container">
+      <div class="box">
+        <h3>Advocacy</h3>
+      </div>
+      <div class="box">
+        <h3>Infographics</h3>
+      </div>
+      <div class="box">
+        <h3>Blog</h3>
+      </div>
     </div>
-  </div>
+  </main>
 
-  <!-- Falling leaves generator -->
+  <footer>
+    © 2025 Plastic Waste Awareness Project
+  </footer>
+
   <script>
-    const leaves = ['🍃','🍂','🌿','🍁'];
-    setInterval(() => {
-      const leaf = document.createElement('div');
-      leaf.className = 'leaf';
-      leaf.innerText = leaves[Math.floor(Math.random() * leaves.length)];
+    // Create falling leaves
+    for (let i = 0; i < 15; i++) {
+      let leaf = document.createElement('div');
+      leaf.classList.add('leaf');
       leaf.style.left = Math.random() * 100 + 'vw';
       leaf.style.animationDuration = (5 + Math.random() * 5) + 's';
+      leaf.style.animationDelay = Math.random() * 5 + 's';
       document.body.appendChild(leaf);
-      setTimeout(() => leaf.remove(), 10000);
-    }, 400);
+    }
   </script>
 </body>
 </html>
