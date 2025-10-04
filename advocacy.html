@@ -3,132 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <title>Advocacy - Group 8</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: "Segoe UI", Tahoma, sans-serif;
-      background: url("https://i.ibb.co/gSLdgtf/park-background.jpg") no-repeat center center fixed;
-      background-size: cover;
-      color: #333;
-      overflow-x: hidden;
-    }
-
-    header {
-      background: rgba(255,255,255,0.8);
-      padding: 30px 20px;
-      text-align: center;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-    header h1 {
-      font-size: 2.5rem;
-      color: #2e7d32;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
-      margin-bottom: 10px;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-    nav a {
-      text-decoration: none;
-      background: white;
-      color: #2e7d32;
-      padding: 12px 28px;
-      border-radius: 12px;
-      font-weight: bold;
-      border: 2px solid #2e7d32;
-      transition: 0.3s;
-    }
-    nav a:hover {
-      background: #43a047;
-      color: white;
-      transform: scale(1.05);
-    }
-
-    .content {
-      max-width: 900px;
-      margin: 50px auto;
-      background: rgba(255,255,255,0.9);
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-      animation: fadeIn 2s ease;
-    }
-    .content h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #1b5e20;
-      text-align: center;
-    }
-    .content p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      text-align: justify;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    footer {
-      margin-top: 50px;
-      text-align: center;
-      padding: 15px;
-      background: rgba(0,0,0,0.6);
-      color: white;
-    }
-
-    /* Falling leaves */
-    .leaf {
-      position: fixed;
-      top: -100px;
-      width: 40px;
-      height: 40px;
-      background: url("https://i.ibb.co/7yJ9pTG/leaf.png") no-repeat;
-      background-size: contain;
-      animation: fall linear infinite;
-      opacity: 0.8;
-    }
-    @keyframes fall {
-      0% { transform: translateY(-100px) rotate(0deg); }
-      100% { transform: translateY(110vh) rotate(360deg); }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>🌿 Advocacy</h1>
+    <h1>🌿 Group 8 Advocacy 🌿</h1>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="infographics.html">Infographics</a>
-      <a href="blog.html">Blog</a>
+      <a href="index.html"><span>Home</span></a>
+      <a href="advocacy.html"><span>Advocacy</span></a>
+      <a href="infographics.html"><span>Infographics</span></a>
+      <a href="blog.html"><span>Blog</span></a>
     </nav>
   </header>
 
-  <div class="content">
+  <div class="welcome">
     <h2>Our Advocacy</h2>
     <p>
-      Our advocacy focuses on raising awareness about <strong>plastic waste reduction</strong> 🌍.  
-      We aim to inspire communities to adopt eco-friendly practices, reduce single-use plastics,  
-      and protect our environment for future generations.  
+      Group 8 supports <strong>environmental awareness</strong> 🌏💚.  
+      Our mission is to promote <em>sustainable living, tree planting, and waste reduction</em>.  
+      We believe small actions—like planting trees, proper waste segregation,  
+      and conserving energy—lead to a healthier and greener community.
     </p>
   </div>
 
   <footer>
-    © 2025 Group 8 | Advocacy Page
+    © 2025 Group 8 School Website | Advocacy Page
   </footer>
-
-  <script>
-    for (let i = 0; i < 12; i++) {
-      let leaf = document.createElement("div");
-      leaf.className = "leaf";
-      leaf.style.left = Math.random() * 100 + "vw";
-      leaf.style.animationDuration = 6 + Math.random() * 6 + "s";
-      document.body.appendChild(leaf);
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
