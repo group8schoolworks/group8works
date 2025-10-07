@@ -12,7 +12,7 @@
 
     body {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: url("https://i.ibb.co/Vw4Xcqk/forest-lake-bg.jpg") no-repeat center center fixed;
+      background: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80") no-repeat center center fixed;
       background-size: cover;
       color: #333;
       overflow: hidden;
@@ -29,7 +29,7 @@
     header h1 {
       font-size: 3rem;
       font-weight: 900;
-      color: #1565c0;
+      color: #2e7d32;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
       letter-spacing: 2px;
       margin-bottom: 15px;
@@ -44,14 +44,14 @@
     nav a {
       text-decoration: none;
       background: white;
-      color: #1565c0;
+      color: #2e7d32;
       padding: 15px 35px;
       border-radius: 12px;
       font-size: 1.2rem;
       font-weight: bold;
       transition: all 0.3s ease;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      border: 2px solid #1565c0;
+      border: 2px solid #2e7d32;
       position: relative;
       overflow: hidden;
     }
@@ -62,7 +62,7 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: rgba(100, 181, 246, 0.3);
+      background: rgba(76, 175, 80, 0.3);
       transition: left 0.4s;
       z-index: 0;
     }
@@ -76,7 +76,7 @@
     nav a:hover {
       transform: translateY(-4px) scale(1.05);
       color: white;
-      background: #42a5f5;
+      background: #43a047;
     }
 
     /* MAIN CONTENT */
@@ -93,7 +93,7 @@
     .welcome h2 {
       font-size: 2rem;
       margin-bottom: 20px;
-      color: #0d47a1;
+      color: #1b5e20;
     }
     .welcome p {
       font-size: 1.1rem;
@@ -117,45 +117,58 @@
       z-index: 2;
     }
 
-    /* WATER DROPLETS */
-    .drop {
+    /* FALLING LEAVES */
+    .leaf {
       position: fixed;
-      top: -50px;
-      width: 20px;
-      height: 20px;
-      background: url("https://i.ibb.co/BtJ9xkZ/waterdrop.png") no-repeat center;
+      top: -100px;
+      width: 40px;
+      height: 40px;
+      background: url("https://i.ibb.co/7yJ9pTG/leaf.png") no-repeat;
       background-size: contain;
       animation: fall linear infinite;
       z-index: 0;
       opacity: 0.9;
     }
-
     @keyframes fall {
       0% {
-        transform: translateY(-50px) rotate(0deg);
+        transform: translateY(-100px) rotate(0deg);
       }
       100% {
         transform: translateY(110vh) rotate(360deg);
       }
     }
+
+    /* EXTRA DECOR - Floating glowing orbs */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      animation: floatOrb 10s infinite ease-in-out alternate;
+      z-index: 1;
+    }
+    @keyframes floatOrb {
+      from { transform: translateY(0) translateX(0); }
+      to { transform: translateY(-50px) translateX(30px); }
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>💧 Group 8 School Website 💧</h1>
+    <h1>🌿 Group 8 School Website 🌿</h1>
     <nav>
       <a href="conceptpaper.html"><span>Concept Paper</span></a>
       <a href="infographics.html"><span>Infographics</span></a>
-      <a href="vlog.html"><span>Vlog</span></a>
+      <a href="blog.html"><span>Blog</span></a>
     </nav>
   </header>
 
   <div class="welcome">
     <h2>Welcome to Our Website!</h2>
     <p>
-      Discover our group’s creative work and advocacy projects through  
-      our <em>Concept Paper</em>, <em>Infographics</em>, and <em>Vlog</em>.  
-      Explore. Learn. Inspire. 🌊✨
+      This is the official hub of <strong>Group 8</strong>.  
+      Here, you can explore our <em>Concept Paper</em>, check out  
+      our creative <em>Infographics</em>, and read insights  
+      on our <em>Blog</em>. 🌱✨  
     </p>
   </div>
 
@@ -164,14 +177,25 @@
   </footer>
 
   <script>
-    // Create water droplets animation
-    for (let i = 0; i < 20; i++) {
-      let drop = document.createElement("div");
-      drop.className = "drop";
-      drop.style.left = Math.random() * 100 + "vw";
-      drop.style.animationDuration = 4 + Math.random() * 5 + "s";
-      drop.style.opacity = Math.random() * 0.8 + 0.3;
-      document.body.appendChild(drop);
+    // Generate falling leaves
+    for (let i = 0; i < 15; i++) {
+      let leaf = document.createElement("div");
+      leaf.className = "leaf";
+      leaf.style.left = Math.random() * 100 + "vw";
+      leaf.style.animationDuration = 6 + Math.random() * 6 + "s";
+      leaf.style.opacity = Math.random() * 0.8 + 0.3;
+      document.body.appendChild(leaf);
+    }
+
+    // Floating orbs
+    for (let i = 0; i < 6; i++) {
+      let orb = document.createElement("div");
+      orb.className = "orb";
+      orb.style.width = orb.style.height = 40 + Math.random() * 40 + "px";
+      orb.style.left = Math.random() * 100 + "vw";
+      orb.style.top = 50 + Math.random() * 70 + "vh";
+      orb.style.animationDuration = 8 + Math.random() * 6 + "s";
+      document.body.appendChild(orb);
     }
   </script>
 </body>
