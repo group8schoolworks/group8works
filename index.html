@@ -12,7 +12,7 @@
 
     body {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80") no-repeat center center fixed;
+      background: url("https://i.ibb.co/6vvRzgZ/park-background-green.jpg") no-repeat center center fixed;
       background-size: cover;
       color: #333;
       overflow: hidden;
@@ -26,6 +26,7 @@
       backdrop-filter: blur(6px);
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
+
     header h1 {
       font-size: 3rem;
       font-weight: 900;
@@ -35,12 +36,13 @@
       margin-bottom: 15px;
     }
 
-    /* NAVIGATION */
+    /* NAVIGATION BUTTONS */
     nav {
       display: flex;
       justify-content: center;
       gap: 25px;
     }
+
     nav a {
       text-decoration: none;
       background: white;
@@ -55,6 +57,7 @@
       position: relative;
       overflow: hidden;
     }
+
     nav a::after {
       content: "";
       position: absolute;
@@ -66,20 +69,23 @@
       transition: left 0.4s;
       z-index: 0;
     }
+
     nav a:hover::after {
       left: 0;
     }
+
     nav a span {
       position: relative;
       z-index: 1;
     }
+
     nav a:hover {
       transform: translateY(-4px) scale(1.05);
       color: white;
       background: #43a047;
     }
 
-    /* MAIN CONTENT */
+    /* WELCOME BOX */
     .welcome {
       max-width: 800px;
       margin: 60px auto;
@@ -90,11 +96,13 @@
       box-shadow: 0 8px 25px rgba(0,0,0,0.2);
       animation: fadeIn 2s ease;
     }
+
     .welcome h2 {
       font-size: 2rem;
       margin-bottom: 20px;
       color: #1b5e20;
     }
+
     .welcome p {
       font-size: 1.1rem;
       line-height: 1.8;
@@ -117,35 +125,34 @@
       z-index: 2;
     }
 
-    /* FALLING LEAVES */
-    .leaf {
+    /* 💧 FALLING WATER DROPLETS */
+    .droplet {
       position: fixed;
       top: -100px;
-      width: 40px;
-      height: 40px;
-      background: url("https://i.ibb.co/7yJ9pTG/leaf.png") no-repeat;
-      background-size: contain;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle, rgba(173,216,230,0.9) 0%, rgba(0,150,255,0.5) 70%);
+      border-radius: 50%;
       animation: fall linear infinite;
       z-index: 0;
-      opacity: 0.9;
-    }
-    @keyframes fall {
-      0% {
-        transform: translateY(-100px) rotate(0deg);
-      }
-      100% {
-        transform: translateY(110vh) rotate(360deg);
-      }
+      opacity: 0.8;
+      filter: blur(0.5px);
     }
 
-    /* EXTRA DECOR - Floating glowing orbs */
+    @keyframes fall {
+      0% { transform: translateY(-100px) rotate(0deg); opacity: 0.8; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0.2; }
+    }
+
+    /* ✨ FLOATING LIGHT ORBS */
     .orb {
       position: fixed;
       border-radius: 50%;
-      background: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.25);
       animation: floatOrb 10s infinite ease-in-out alternate;
       z-index: 1;
     }
+
     @keyframes floatOrb {
       from { transform: translateY(0) translateX(0); }
       to { transform: translateY(-50px) translateX(30px); }
@@ -156,19 +163,19 @@
   <header>
     <h1>🌿 Group 8 School Website 🌿</h1>
     <nav>
-      <a href="advocacy.html"><span>Advocacy</span></a>
+      <a href="conceptpaper.html"><span>Concept Paper</span></a>
       <a href="infographics.html"><span>Infographics</span></a>
-      <a href="blog.html"><span>Blog</span></a>
+      <a href="vlog.html"><span>Vlog</span></a>
     </nav>
   </header>
 
   <div class="welcome">
     <h2>Welcome to Our Website!</h2>
     <p>
-      This is the official hub of <strong>Group 8</strong>.  
-      Here, you can explore our <em>Advocacy</em>, check out  
-      our creative <em>Infographics</em>, and read insights  
-      on our <em>Blog</em>. 🌱✨  
+      This is the official hub of <strong>Group 8</strong>.<br>
+      Explore our <em>Concept Paper</em>, learn through our <em>Infographics</em>,  
+      and watch our <em>Vlog</em> for more insights about our advocacy on  
+      <strong>Plastic Waste Awareness 🌏💧</strong>.
     </p>
   </div>
 
@@ -177,23 +184,24 @@
   </footer>
 
   <script>
-    // Generate falling leaves
-    for (let i = 0; i < 15; i++) {
-      let leaf = document.createElement("div");
-      leaf.className = "leaf";
-      leaf.style.left = Math.random() * 100 + "vw";
-      leaf.style.animationDuration = 6 + Math.random() * 6 + "s";
-      leaf.style.opacity = Math.random() * 0.8 + 0.3;
-      document.body.appendChild(leaf);
+    // Falling droplets 💧
+    for (let i = 0; i < 20; i++) {
+      let drop = document.createElement("div");
+      drop.className = "droplet";
+      drop.style.left = Math.random() * 100 + "vw";
+      drop.style.animationDuration = 5 + Math.random() * 5 + "s";
+      drop.style.opacity = Math.random() * 0.9 + 0.3;
+      drop.style.width = drop.style.height = 10 + Math.random() * 15 + "px";
+      document.body.appendChild(drop);
     }
 
-    // Floating orbs
+    // Floating orbs ✨
     for (let i = 0; i < 6; i++) {
       let orb = document.createElement("div");
       orb.className = "orb";
       orb.style.width = orb.style.height = 40 + Math.random() * 40 + "px";
       orb.style.left = Math.random() * 100 + "vw";
-      orb.style.top = 50 + Math.random() * 70 + "vh";
+      orb.style.top = 50 + Math.random() * 50 + "vh";
       orb.style.animationDuration = 8 + Math.random() * 6 + "s";
       document.body.appendChild(orb);
     }
