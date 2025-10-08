@@ -12,7 +12,7 @@
 
     body {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80") no-repeat center center fixed;
+      background: url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80") no-repeat center center fixed;
       background-size: cover;
       color: #333;
       overflow: hidden;
@@ -117,13 +117,13 @@
       z-index: 2;
     }
 
-    /* FALLING LEAVES */
+    /* FALLING DROPS */
     .leaf {
       position: fixed;
       top: -100px;
       width: 40px;
       height: 40px;
-      background: url("https://i.ibb.co/7yJ9pTG/leaf.png") no-repeat;
+      background: url("https://i.ibb.co/6J5FnZw/leaf-green.png") no-repeat;
       background-size: contain;
       animation: fall linear infinite;
       z-index: 0;
@@ -158,7 +158,7 @@
     <nav>
       <a href="conceptpaper.html"><span>Concept Paper</span></a>
       <a href="infographics.html"><span>Infographics</span></a>
-      <a href="blog.html"><span>Blog</span></a>
+      <a href="vlog.html"><span>Vlog</span></a>
     </nav>
   </header>
 
@@ -166,9 +166,8 @@
     <h2>Welcome to Our Website!</h2>
     <p>
       This is the official hub of <strong>Group 8</strong>.  
-      Here, you can explore our <em>Concept Paper</em>, check out  
-      our creative <em>Infographics</em>, and read insights  
-      on our <em>Blog</em>. 🌱✨  
+      Explore our <em>Concept Paper</em>, view creative <em>Infographics</em>,  
+      and watch our <em>Vlog</em> for more insights. 🌱✨  
     </p>
   </div>
 
@@ -177,7 +176,7 @@
   </footer>
 
   <script>
-    // Generate falling leaves
+    // Generate falling droplets (replacing leaves)
     for (let i = 0; i < 15; i++) {
       let leaf = document.createElement("div");
       leaf.className = "leaf";
