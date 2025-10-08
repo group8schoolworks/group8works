@@ -2,53 +2,124 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Concept Paper</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Group 8 Website</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: "Segoe UI", sans-serif;
-      background: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80") no-repeat center center fixed;
-      background-size: cover;
-      color: #2e7d32;
-      text-align: center;
+      height: 100vh;
       overflow: hidden;
+      font-family: "Poppins", sans-serif;
+      background: url('https://wallpaperswide.com/download/forest_lake_reflection-wallpaper-1920x1080.jpg') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+      color: #fff;
     }
+
     h1 {
-      margin-top: 150px;
-      font-size: 4rem;
-      animation: zoomIn 2s ease;
-      text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+      font-size: 3.5rem;
+      text-shadow: 0 0 25px rgba(255,255,255,0.9);
+      letter-spacing: 2px;
+      margin-bottom: 50px;
+      animation: fadeInDown 2s ease;
+      text-align: center;
     }
-    @keyframes zoomIn {
-      from { transform: scale(0.5); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
+
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .menu {
+      display: flex;
+      gap: 40px;
+      z-index: 10;
+    }
+
+    .menu a {
+      padding: 20px 50px;
+      background: rgba(255,255,255,0.15);
+      color: white;
+      border: 2px solid rgba(255,255,255,0.5);
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1.4rem;
+      transition: all 0.4s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .menu a:hover {
+      background: rgba(255,255,255,0.3);
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(255,255,255,0.6);
+    }
+
+    .orb {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: radial-gradient(circle, rgba(173,216,230,0.6), rgba(255,255,255,0));
+      border-radius: 50%;
+      animation: float 8s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); opacity: 0.7; }
+      50% { transform: translateY(-60px) scale(1.2); opacity: 1; }
+      100% { transform: translateY(0) scale(1); opacity: 0.7; }
     }
 
     .leaf {
-      position: fixed;
-      top: -100px;
-      width: 40px; height: 40px;
-      background: url("https://img.freepik.com/premium-psd/leaf-from-plant-is-shown-transparent-background_410516-194300.jpg?w=2000") no-repeat;
-      background-size: contain;
+      position: absolute;
+      top: -10%;
+      width: 90px;
+      opacity: 0.9;
       animation: fall linear infinite;
-      opacity: 0.8;
     }
+
     @keyframes fall {
-      0% { transform: translateY(-100px) rotate(0deg); }
-      100% { transform: translateY(110vh) rotate(360deg); }
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0.7; }
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.25);
+      z-index: 1;
     }
   </style>
 </head>
 <body>
-  <h1>Concept Paper</h1>
+  <div class="overlay"></div>
 
-  <script>
-    for (let i = 0; i < 15; i++) {
-      let leaf = document.createElement("div");
-      leaf.className = "leaf";
-      leaf.style.left = Math.random() * 100 + "vw";
-      leaf.style.animationDuration = 6 + Math.random() * 6 + "s";
-      document.body.appendChild(leaf);
-    }
-  </script>
+  <h1>Group 8 School Website</h1>
+  <div class="menu">
+    <a href="conceptpaper.html">Concept Paper</a>
+    <a href="infographics.html">Infographics</a>
+    <a href="vlog.html">Vlog</a>
+  </div>
+
+  <!-- Orbs -->
+  <div class="orb" style="top:15%; left:10%; animation-delay:0s;"></div>
+  <div class="orb" style="top:40%; left:80%; animation-delay:1.5s;"></div>
+  <div class="orb" style="top:70%; left:25%; animation-delay:3s;"></div>
+  <div class="orb" style="top:85%; left:60%; animation-delay:4.5s;"></div>
+
+  <!-- Falling Leaves -->
+  <img src="https://img.freepik.com/premium-psd/leaf-from-plant-is-shown-transparent-background_410516-194300.jpg?w=2000" class="leaf" style="left:10%; animation-duration:12s;">
+  <img src="https://img.freepik.com/premium-psd/leaf-from-plant-is-shown-transparent-background_410516-194300.jpg?w=2000" class="leaf" style="left:40%; animation-duration:14s;">
+  <img src="https://img.freepik.com/premium-psd/leaf-from-plant-is-shown-transparent-background_410516-194300.jpg?w=2000" class="leaf" style="left:75%; animation-duration:17s;">
 </body>
 </html>
