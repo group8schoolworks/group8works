@@ -26,6 +26,7 @@
       backdrop-filter: blur(6px);
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
+
     header h1 {
       font-size: 3rem;
       font-weight: 900;
@@ -41,6 +42,7 @@
       justify-content: center;
       gap: 25px;
     }
+
     nav a {
       text-decoration: none;
       background: white;
@@ -55,6 +57,7 @@
       position: relative;
       overflow: hidden;
     }
+
     nav a::after {
       content: "";
       position: absolute;
@@ -66,13 +69,16 @@
       transition: left 0.4s;
       z-index: 0;
     }
+
     nav a:hover::after {
       left: 0;
     }
+
     nav a span {
       position: relative;
       z-index: 1;
     }
+
     nav a:hover {
       transform: translateY(-4px) scale(1.05);
       color: white;
@@ -90,11 +96,13 @@
       box-shadow: 0 8px 25px rgba(0,0,0,0.2);
       animation: fadeIn 2s ease;
     }
+
     .welcome h2 {
       font-size: 2rem;
       margin-bottom: 20px;
       color: #1b5e20;
     }
+
     .welcome p {
       font-size: 1.1rem;
       line-height: 1.8;
@@ -123,12 +131,13 @@
       top: -100px;
       width: 40px;
       height: 40px;
-      background: url("https://i.ibb.co/7yJ9pTG/leaf.png") no-repeat;
+      background: url("https://img.freepik.com/premium-psd/leaf-from-plant-is-shown-transparent-background_410516-194300.jpg?w=2000") no-repeat center;
       background-size: contain;
       animation: fall linear infinite;
       z-index: 0;
       opacity: 0.9;
     }
+
     @keyframes fall {
       0% {
         transform: translateY(-100px) rotate(0deg);
@@ -138,25 +147,27 @@
       }
     }
 
-    /* FLOATING ORBS (BUBBLES) */
+    /* FLOATING BUBBLES */
     .orb {
       position: fixed;
       border-radius: 50%;
-      background: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.25);
       animation: floatOrb 10s infinite ease-in-out alternate;
       z-index: 1;
     }
+
     @keyframes floatOrb {
       from { transform: translateY(0) translateX(0); }
-      to { transform: translateY(-50px) translateX(30px); }
+      to { transform: translateY(-60px) translateX(30px); }
     }
   </style>
 </head>
+
 <body>
   <header>
     <h1>🌿 Group 8 School Website 🌿</h1>
     <nav>
-      <a href="concept.html"><span>Concept Paper</span></a>
+      <a href="conceptpaper.html"><span>Concept Paper</span></a>
       <a href="infographics.html"><span>Infographics</span></a>
       <a href="vlog.html"><span>Vlog</span></a>
     </nav>
@@ -165,9 +176,9 @@
   <div class="welcome">
     <h2>Welcome to Our Website!</h2>
     <p>
-      This is the official hub of <strong>Group 8</strong>.  
-      Explore our <em>Concept Paper</em>, view creative <em>Infographics</em>,  
-      and enjoy our <em>Vlog</em> — all showcasing our advocacy. 🌱✨  
+      This is the official hub of <strong>Group 8</strong>.<br>
+      Explore our <em>Concept Paper</em>, view creative <em>Infographics</em>,<br>
+      and enjoy watching our <em>Vlog</em>! 🌱✨
     </p>
   </div>
 
@@ -176,7 +187,7 @@
   </footer>
 
   <script>
-    // Falling leaves
+    // Generate falling leaves
     for (let i = 0; i < 15; i++) {
       let leaf = document.createElement("div");
       leaf.className = "leaf";
@@ -186,7 +197,7 @@
       document.body.appendChild(leaf);
     }
 
-    // Floating bubbles
+    // Floating orbs (bubbles)
     for (let i = 0; i < 6; i++) {
       let orb = document.createElement("div");
       orb.className = "orb";
