@@ -47,6 +47,56 @@
     @keyframes fall {0%{transform:translateY(-100px)rotate(0deg);}100%{transform:translateY(110vh)rotate(360deg);}}
     .orb {position: fixed; border-radius: 50%; background: rgba(255,255,255,0.3); animation: floatOrb 10s infinite ease-in-out alternate;}
     @keyframes floatOrb {from{transform:translateY(0)translateX(0);}to{transform:translateY(-50px)translateX(30px);}}
+
+    /* Infographics styles */
+    .infographic-container {
+      position: relative;
+      width: 80%;
+      max-width: 700px;
+      height: 400px;
+      margin: 40px auto;
+      background: rgba(255,255,255,0.9);
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .infographic-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+      border-radius: 15px;
+    }
+
+    .infographic-container img.active {
+      display: block;
+    }
+
+    .buttons {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .buttons button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background: #2e7d32;
+      color: white;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .buttons button:hover {
+      background: #145a22;
+    }
   </style>
 </head>
 <body>
@@ -54,9 +104,23 @@
     <h1>🌿 Infographics 🌿</h1>
   </header>
 
+  <!-- Infographics Section -->
+  <div class="infographic-container">
+    <img src="pic1.jpg" class="active" alt="Infographic 1">
+    <img src="pic2.jpg" alt="Infographic 2">
+    <img src="pic3.jpg" alt="Infographic 3">
+    <img src="pic4.jpg" alt="Infographic 4">
+  </div>
+
+  <div class="buttons">
+    <button id="back">Back</button>
+    <button id="next">Next</button>
+  </div>
+
   <footer>© 2025 Group 8 | Infographics Page</footer>
 
   <script>
+    // Falling leaves and floating orbs
     for (let i = 0; i < 12; i++) {
       let leaf = document.createElement("div");
       leaf.className = "leaf";
@@ -73,6 +137,22 @@
       orb.style.animationDuration = 8 + Math.random() * 4 + "s";
       document.body.appendChild(orb);
     }
+
+    // Infographics slide logic
+    const images = document.querySelectorAll('.infographic-container img');
+    let current = 0;
+
+    document.getElementById('next').addEventListener('click', () => {
+      images[current].classList.remove('active');
+      current = (current + 1) % images.length;
+      images[current].classList.add('active');
+    });
+
+    document.getElementById('back').addEventListener('click', () => {
+      images[current].classList.remove('active');
+      current = (current - 1 + images.length) % images.length;
+      images[current].classList.add('active');
+    });
   </script>
 </body>
 </html>
