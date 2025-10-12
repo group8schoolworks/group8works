@@ -50,11 +50,13 @@
 
     /* Infographics styles */
     .infographic-container {
-      position: relative;
+      position: fixed;   /* always visible in center */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       width: 80%;
-      max-width: 500px;
-      height: 600px;
-      margin: 40px auto;
+      max-width: 700px;
+      height: 400px;
       background: rgba(255,255,255,0.9);
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
@@ -62,6 +64,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      z-index: 1000;
     }
 
     .infographic-container img {
@@ -77,8 +80,12 @@
     }
 
     .buttons {
+      position: fixed;    /* always visible */
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
       text-align: center;
-      margin-top: 15px;
+      z-index: 1000;
     }
 
     .buttons button {
@@ -107,9 +114,9 @@
   <!-- Infographics Section -->
   <div class="infographic-container">
     <img src="https://i.postimg.cc/nLZHrSrM/Orange-and-Green-Grainy-Gradient-Illustrative-3-R-s-Sustainability-Infograph-20251008-221418-0000.jpg" class="active" alt="Infographic 1">
-    <img src="Infographic2.jpg" alt="Infographic 2">
-    <img src="Infographic2.jpg" alt="Infographic 3">
-    <img src="Infographic2.jpg" alt="Infographic 4">
+    <img src="pic2.jpg" alt="Infographic 2">
+    <img src="pic3.jpg" alt="Infographic 3">
+    <img src="pic4.jpg" alt="Infographic 4">
   </div>
 
   <div class="buttons">
@@ -156,4 +163,3 @@
   </script>
 </body>
 </html>
-
