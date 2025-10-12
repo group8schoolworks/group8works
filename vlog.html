@@ -48,14 +48,15 @@
     .orb {position: fixed; border-radius: 50%; background: rgba(255,255,255,0.3); animation: floatOrb 10s infinite ease-in-out alternate;}
     @keyframes floatOrb {from{transform:translateY(0)translateX(0);}to{transform:translateY(-50px)translateX(30px);}}
 
-    /* VIDEO STYLES */
     .video-container {
       text-align: center;
       margin: 50px 0;
     }
-    .video-container video {
+    iframe {
       width: 800px;
       max-width: 90%;
+      height: 450px;
+      border: none;
       border-radius: 15px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.3);
     }
@@ -66,20 +67,17 @@
     <h1>🌿 Vlog 🌿</h1>
   </header>
 
-  <!-- VIDEO START -->
+  <!-- ✅ VIDEO (GOOGLE DRIVE EMBED) -->
   <div class="video-container">
-    <video controls autoplay>
-      <source src="https://drive.google.com/file/d/1pSU8VrsFlrXbWbKgu3AxonEpx1sUuBV3/view?usp=drivesdk
-" type="video/mp4">
-      Your browser does not support HTML5 video.
-    </video>
+    <iframe 
+      src="https://drive.google.com/file/d/1pSU8VrsFlrXbWbKgu3AxonEpx1sUuBV3/preview" 
+      allow="autoplay; fullscreen">
+    </iframe>
   </div>
-  <!-- VIDEO END -->
 
   <footer>© 2025 Group 8 | Vlog Page</footer>
 
   <script>
-    // Falling leaves
     for (let i = 0; i < 12; i++) {
       let leaf = document.createElement("div");
       leaf.className = "leaf";
@@ -87,7 +85,7 @@
       leaf.style.animationDuration = 6 + Math.random() * 6 + "s";
       document.body.appendChild(leaf);
     }
-    // Floating orbs
+
     for (let i = 0; i < 6; i++) {
       let orb = document.createElement("div");
       orb.className = "orb";
